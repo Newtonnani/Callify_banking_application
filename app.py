@@ -88,12 +88,10 @@ def transactions_user_date(user=None, date=None):
         return str(e)
 
 
-@app.route("/<user>/details/<ID>", methods=['GET'])
-def transactions_user_id(user=None, ID=None):
+@app.route("/details/<ID>", methods=['GET'])
+def transactions_user_id(ID=None):
     try:
-        user_mapped = Users.query.filter(Users.user_name == user).first()
-        account_mapped = Account.query.filter(and_(
-            Account.account_number_id == user_mapped.id, Account.id == int(ID))).first()
+        account_mapped = Account.query.filter(Account.id == int(ID)).first()
         return jsonify([account_mapped.serialize()])
     except Exception as e:
         return str(e)
