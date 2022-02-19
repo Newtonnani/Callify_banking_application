@@ -13,8 +13,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from models import Account
 from models import Users
+from models import Account
+
 
 
 @app.route("/")
@@ -99,4 +100,4 @@ def transactions_user_id(user=None, ID=None):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
