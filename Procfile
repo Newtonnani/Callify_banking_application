@@ -1,2 +1,2 @@
-web: gunicorn app.py:app
+web: gunicorn -b :$PORT app:app
 $ echo web: gunicorn run:app >> Procfile

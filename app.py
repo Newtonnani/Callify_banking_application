@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from datetime import date, datetime
 from sqlalchemy import or_, and_
 
+port = int(os.environ.get('PORT', 5000))
 app = Flask(__name__)
 
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -98,4 +99,4 @@ def transactions_user_id(user=None, ID=None):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=port, debug=True)
