@@ -8,7 +8,7 @@ from sqlalchemy import or_, and_
 port = int(os.environ.get('PORT', 5000))
 app = Flask(__name__)
 
-app.config.from_object(os.environ['APP_SETTINGS'])
+app.config.from_object("config.DevelopmentConfig")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
